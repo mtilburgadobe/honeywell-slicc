@@ -1,0 +1,112 @@
+/* platform-cta block */
+.platform-cta-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.platform-cta {
+  --cta-heading-color: #303030;
+  --cta-text-color: #212529;
+  --cta-item-title-size: 20px;
+  --cta-subtitle-size: 18px;
+  --cta-padding-h: 30px;
+  --cta-icon-size: 38px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px var(--cta-padding-h) 0;
+}
+
+/* Heading row */
+.platform-cta > div:first-child h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--cta-heading-color);
+  margin: 0 0 4px;
+  line-height: 1.15;
+}
+
+/* Subtitle row */
+.platform-cta > div:nth-child(2) p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--cta-text-color);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+/* Accordion items row */
+.platform-cta > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 0;
+}
+
+.platform-cta > div:nth-child(3) > div {
+  padding: 18px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.platform-cta > div:nth-child(3) > div:last-child {
+  border-bottom: none;
+}
+
+.platform-cta > div:nth-child(3) > div h3 {
+  font-size: var(--cta-item-title-size);
+  font-weight: 700;
+  color: #1d1d1d;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: none;
+  line-height: 1.3;
+}
+
+.platform-cta > div:nth-child(3) > div h3::after {
+  content: '';
+  display: inline-block;
+  width: var(--cta-icon-size);
+  height: var(--cta-icon-size);
+  min-width: var(--cta-icon-size);
+  background: url('/icons/plus.svg') center / 16px 16px no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.platform-cta > div:nth-child(3) > div.open h3::after {
+  transform: rotate(45deg);
+}
+
+.platform-cta > div:nth-child(3) > div p {
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+  transition: max-height 0.3s ease, margin 0.3s ease;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--cta-text-color);
+  line-height: 1.5;
+}
+
+.platform-cta > div:nth-child(3) > div.open p {
+  max-height: 200px;
+  margin-top: 12px;
+}
+
+@media (width >= 900px) {
+  .platform-cta > div:nth-child(3) {
+    flex-direction: row;
+  }
+
+  .platform-cta > div:nth-child(3) > div {
+    flex: 1;
+    border-bottom: none;
+    border-right: 1px solid #e0e0e0;
+  }
+
+  .platform-cta > div:nth-child(3) > div:last-child {
+    border-right: none;
+  }
+}

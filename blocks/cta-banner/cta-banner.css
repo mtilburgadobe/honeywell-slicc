@@ -1,0 +1,102 @@
+/* CTA Banner — full-width banner with background image and white card overlay */
+
+.cta-banner-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.cta-banner {
+  --banner-min-height: 500px;
+  --card-bg: #fff;
+  --card-radius: 16px;
+  --card-padding: 30px;
+  --card-max-width: 480px;
+  --card-text: #212529;
+
+  position: relative;
+  min-height: var(--banner-min-height);
+  display: flex;
+  align-items: flex-end;
+  padding: 60px 40px;
+  overflow: hidden;
+}
+
+/* Background image — applied via JS from the image cell */
+.cta-banner .cta-banner-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cta-banner .cta-banner-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* White card overlay */
+.cta-banner .cta-banner-card {
+  position: relative;
+  z-index: 1;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  max-width: var(--card-max-width);
+  color: var(--card-text);
+}
+
+.cta-banner .cta-banner-card h5 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--card-text);
+}
+
+.cta-banner .cta-banner-card p {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.cta-banner .cta-banner-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* CTA button — secondary style (outline) */
+main .cta-banner a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  background: var(--card-bg);
+  border: 2px solid var(--accent-color);
+  border-radius: var(--button-border-radius);
+  color: var(--accent-color);
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  text-transform: var(--button-text-transform);
+  text-decoration: none;
+  letter-spacing: var(--button-letter-spacing);
+  transition: var(--button-transition);
+  white-space: nowrap;
+}
+
+main .cta-banner a.button:any-link:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+/* Mobile layout */
+@media (width < 900px) {
+  .cta-banner {
+    min-height: 400px;
+    padding: 30px 20px;
+    align-items: flex-end;
+  }
+
+  .cta-banner .cta-banner-card {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,178 @@
+/* What We Do — tabbed industry showcase */
+
+.what-we-do {
+  --wwd-nav-width: 240px;
+  --wwd-active-border: 3px solid #d22630;
+  --wwd-card-radius: 8px;
+  --wwd-card-bg: #f7f7f7;
+  --wwd-text-color: #000;
+  --wwd-link-color: #0071b3;
+  --wwd-nav-active-color: #1d1d1d;
+  --wwd-nav-color: #303030;
+}
+
+/* Layout: nav on left, content on right */
+.what-we-do .wwd-layout {
+  display: flex;
+  gap: 24px;
+}
+
+/* Nav list */
+.what-we-do .wwd-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: var(--wwd-nav-width);
+  max-width: var(--wwd-nav-width);
+  flex-shrink: 0;
+}
+
+.what-we-do .wwd-nav li {
+  margin: 0;
+}
+
+.what-we-do .wwd-nav button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  padding: 10px 0 10px 10px;
+  font-family: var(--body-font-family, sans-serif);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--wwd-nav-color);
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.what-we-do .wwd-nav button:hover {
+  color: var(--wwd-nav-active-color);
+}
+
+.what-we-do .wwd-nav button[aria-selected="true"] {
+  border-left: var(--wwd-active-border);
+  color: var(--wwd-nav-active-color);
+}
+
+/* Content panel */
+.what-we-do .wwd-content {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+/* Each tab panel is a card with bg image */
+.what-we-do .wwd-panel {
+  display: none;
+  position: relative;
+  border-radius: var(--wwd-card-radius);
+  overflow: hidden;
+  min-height: 480px;
+  background-size: cover;
+  background-position: center;
+}
+
+.what-we-do .wwd-panel.active {
+  display: flex;
+  align-items: center;
+}
+
+.what-we-do .wwd-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Text overlay */
+.what-we-do .wwd-panel-text {
+  position: relative;
+  z-index: 1;
+  background: var(--wwd-card-bg);
+  border-radius: var(--wwd-card-radius);
+  padding: 40px;
+  max-width: 50%;
+  margin: 24px;
+  margin-top: 80px;
+  box-sizing: border-box;
+}
+
+.what-we-do .wwd-panel-text h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--wwd-text-color);
+}
+
+.what-we-do .wwd-panel-text p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--wwd-text-color);
+}
+
+main .what-we-do .wwd-panel-text a.button:any-link,
+.what-we-do .wwd-panel-text a {
+  color: var(--wwd-link-color);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+main .what-we-do .wwd-panel-text a.button:any-link:hover,
+.what-we-do .wwd-panel-text a:hover {
+  text-decoration: underline;
+}
+
+main .what-we-do .button-container {
+  display: inline;
+}
+
+/* Mobile: stack nav above content */
+@media (width < 900px) {
+  .what-we-do .wwd-layout {
+    flex-direction: column;
+  }
+
+  .what-we-do .wwd-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .what-we-do .wwd-nav button {
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .what-we-do .wwd-nav button[aria-selected="true"] {
+    border-left: none;
+    border-bottom: var(--wwd-active-border);
+  }
+
+  .what-we-do .wwd-panel {
+    min-height: 300px;
+  }
+
+  .what-we-do .wwd-panel-text {
+    max-width: 100%;
+    margin: 16px;
+    padding: 24px;
+  }
+}
